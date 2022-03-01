@@ -80,9 +80,9 @@ const displayPhoneDetails = details => {
     detailsSection.innerHTML = `
          
         <div class="m-5 ">
-        <h2>phone details</h2>
+        <h2 class="text-3xl text-blue-500 ml-5 ">Phone Details</h2>
         <div class="flex flex-row">
-            <div class="w-3/5">
+            <div class="w-3/5 m-5 border-2 border-blue-600 rounded">
                 <dl>
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4   sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Phone Name</dt>
@@ -126,7 +126,7 @@ const displayPhoneDetails = details => {
 
                 </dl>
             </div>
-            <div class="w-2/5">
+            <div class="w-2/5 m-5">
                 <img class="w-full" src="${details.image}" alt="">
             </div>
         </div>
