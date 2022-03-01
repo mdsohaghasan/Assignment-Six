@@ -4,12 +4,12 @@ const searchPhone = () => {
 
     // searchField.value = '';
 
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    const url = `https://openapi.programming-hero.com//phones?search=${searchText}`;
     console.log(url);
     fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.data))
-        .catch(error => console.log(error));
+        .catch(error => alert(error));
 
 }
 
