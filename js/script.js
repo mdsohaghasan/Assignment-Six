@@ -32,28 +32,16 @@ const displaySearchResult = data => {
         console.log(data);
         const section = document.createElement('div');
         section.innerHTML = `
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
-                            <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
-                                <div class="group relative" onclick="loadPhoneDetails('${data.slug}')">
-                                    <div 
-                                        class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
-                                        <img src="${data.image}"
-                                            class="w-full h-full object-center object-cover">
-                                    </div>
-                                    <h3 class="mt-6 text-sm text-gray-500">
-                                        <a href="#">
-                                            <span class="absolute inset-0"></span>
-                                            ${data.brand}
-                                        </a>
-                                    </h3>
-                                    
-                                    <p class="text-base font-semibold text-gray-900">${data.phone_name}</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
+            <div class="m-3  p-3 bg-white rounded" onclick="loadPhoneDetails('${data.slug}')">
+                <img class="w-full" src="${data.image}" alt="">
+                <h3 class="text-lg text-gray-800 py-2">
+                <a href="#">  ${data.brand} </a>  </h3>
+                <p class="text-lg font-semibold text-gray-900 pb-2">${data.phone_name}</p>
+                <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded" 
+                onclick="loadPhoneDetails('${data.slug}')">Details</button>
+          </div>
+
         `;
         searchResult.appendChild(section);
 
