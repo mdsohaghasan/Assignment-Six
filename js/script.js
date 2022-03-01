@@ -8,7 +8,8 @@ const searchPhone = () => {
     console.log(url);
     fetch(url)
         .then(res => res.json())
-        .then(data => displaySearchResult(data.data));
+        .then(data => displaySearchResult(data.data))
+        .catch(error => console.log(error));
 
 }
 
