@@ -74,6 +74,7 @@ const loadPhoneDetails = phoneId => {
 const displayPhoneDetails = details => {
     console.log(details);
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = '';
     const detailsSection = document.createElement('div');
     detailsSection.innerHTML = `
          
