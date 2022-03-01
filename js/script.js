@@ -59,42 +59,59 @@ const loadPhoneDetails = phoneId => {
 }
 
 const displayPhoneDetails = details => {
-    console.log(details);
+    console.log(details.displaySize);
     const phoneDetails = document.getElementById('phone-details');
     const detailsSection = document.createElement('div');
     detailsSection.innerHTML = `
          
-                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                    <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Phone Details</h3>
-                        <p class="text-base font-semibold text-gray-900">${data.mainFeatures.displaySize}</p>
+        <div class="m-5 ">
+        <h2>phone details</h2>
+        <div class="flex flex-row">
+            <div class="w-3/5">
+                <dl>
+                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4   sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Phone Name</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.name}</dd>
                     </div>
-                    <div class="px-4 py-5 sm:px-6">
-                      <img src="" alt="" class="w-1/2">
-                    </div>
-                    <div class="border-t border-gray-200">
-                        <dl>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3     sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">Full name</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">vvvv</dd>
-                            </div>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">Application for</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${data.storage}</dd>
-                            </div>
-                            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">Email address</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
-                            </div>
-                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt class="text-sm font-medium text-gray-500">Salary expectation</dt>
-                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </div>
 
+                    <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Release Date</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.releaseDate}</dd>
+                    </div>
+                    
+                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Storage</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.storage}</dd>
+                    </div>
+
+                    <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Display Size</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.displaySize}</dd>
+                    </div>
+
+                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">ChipSet</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.chipSet}</dd>
+                    </div>
+
+                    <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Memory</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.memory}</dd>
+                    </div>
+
+                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Brand</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.brand}</dd>
+                    </div>
+
+                </dl>
+            </div>
+            <div class="w-2/5">
+                <img class="w-full" src="" alt="">
+            </div>
+        </div>
+        </div>
           `;
     phoneDetails.appendChild(detailsSection);
-
+    // console.log(data.data.mainFeatures)
 }
