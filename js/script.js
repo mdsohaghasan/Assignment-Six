@@ -14,6 +14,7 @@ const searchPhone = () => {
 
 const displaySearchResult = data => {
     const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
     data.forEach(data => {
         console.log(data);
         const section = document.createElement('div');
@@ -48,7 +49,7 @@ const displaySearchResult = data => {
 }
 
 const loadPhoneDetails = phoneId => {
-    console.log(phoneId);
+    // console.log(phoneId);
     const url = `
        https://openapi.programming-hero.com/api/phone/${phoneId}
     `;
@@ -59,7 +60,7 @@ const loadPhoneDetails = phoneId => {
 }
 
 const displayPhoneDetails = details => {
-    console.log(details.displaySize);
+    console.log(details);
     const phoneDetails = document.getElementById('phone-details');
     const detailsSection = document.createElement('div');
     detailsSection.innerHTML = `
@@ -102,6 +103,11 @@ const displayPhoneDetails = details => {
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Brand</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.brand}</dd>
+                    </div>
+
+                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Sensors</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.sensors[0]}</dd>
                     </div>
 
                 </dl>
