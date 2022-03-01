@@ -4,7 +4,7 @@ const searchPhone = () => {
 
     // searchField.value = '';
 
-    const url = `https://openapi.programming-hero.com//phones?search=${searchText}`;
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     console.log(url);
     fetch(url)
         .then(res => res.json())
@@ -69,7 +69,7 @@ const loadPhoneDetails = phoneId => {
     console.log(url);
     fetch(url)
         .then(res => res.json())
-        .then(data => displayPhoneDetails(data.data.mainFeatures));
+        .then(data => displayPhoneDetails(data.data));
 }
 
 const displayPhoneDetails = details => {
@@ -96,22 +96,22 @@ const displayPhoneDetails = details => {
                     
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Storage</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.storage}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.mainFeatures.storage}</dd>
                     </div>
 
                     <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Display Size</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.displaySize}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.mainFeatures.displaySize}</dd>
                     </div>
 
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">ChipSet</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.chipSet}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.mainFeatures.chipSet}</dd>
                     </div>
 
                     <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Memory</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.memory}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.mainFeatures.memory}</dd>
                     </div>
 
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -119,15 +119,15 @@ const displayPhoneDetails = details => {
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.brand}</dd>
                     </div>
 
-                    <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                    <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Sensors</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.sensors[0]}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">${details.mainFeatures.sensors[0]}</dd>
                     </div>
 
                 </dl>
             </div>
             <div class="w-2/5">
-                <img class="w-full" src="" alt="">
+                <img class="w-full" src="${details.image}" alt="">
             </div>
         </div>
         </div>
