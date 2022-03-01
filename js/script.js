@@ -15,6 +15,18 @@ const searchPhone = () => {
 const displaySearchResult = data => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    if (data.length == 0) {
+        console.log('NO RESULT FOUND');
+        // alert("NO RESULT FOUND");
+        const showError = document.getElementById('search-result');
+        const errorSection = document.createElement('div');
+        errorSection.innerHTML = `
+          <div>
+             <h2 class="text-amber-600">NO RESULT FOUND</h2>
+          </div>`;
+        showError.appendChild(errorSection);
+
+    }
     data.forEach(data => {
         console.log(data);
         const section = document.createElement('div');
