@@ -76,7 +76,7 @@ const displayPhoneDetails = details => {
     const detailsSection = document.createElement('div');
     detailsSection.innerHTML = `
          
-        <div class="m-5 ">
+        <div class="m-10 p-10 ">
         <h2 class="text-3xl text-blue-500 ml-5 ">Phone Details</h2>
         <div class="flex flex-col sm:flex-row ">
             <div class="w-3/5 m-5 border-2 border-blue-600 rounded">
