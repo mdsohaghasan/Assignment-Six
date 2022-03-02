@@ -76,9 +76,9 @@ const displayPhoneDetails = details => {
     const detailsSection = document.createElement('div');
     detailsSection.innerHTML = `
          
-        <div class="m-10 p-10 ">
+        <div class="m-5 p-5 sm:m-10 sm:p-10 ">
         <h2 class="text-3xl text-blue-500 ml-5 ">Phone Details</h2>
-        <div class="flex flex-col sm:flex-row ">
+        <div class="flex flex-col-reverse md:flex-row ">
             <div class="w-3/5 m-5 border-2 border-blue-600 rounded">
                 <dl>
                     <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4   sm:px-6">
