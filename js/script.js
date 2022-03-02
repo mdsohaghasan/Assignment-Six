@@ -2,10 +2,10 @@ const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
 
-    // searchField.value = '';
+    searchField.value = '';
 
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    console.log(url);
+    // console.log(url);
     fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data.data))
@@ -13,6 +13,22 @@ const searchPhone = () => {
 
 }
 
+
+
+
+// phone id tracking
+const loadPhoneDetails = phoneId => {
+    // console.log(phoneId);
+    const url = `
+       https://openapi.programming-hero.com/api/phone/${phoneId}
+    `;
+    console.log(url);
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPhoneDetails(data.data));
+}
+
+// displaySearchResult
 const displaySearchResult = data => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
@@ -32,15 +48,18 @@ const displaySearchResult = data => {
         console.log(data);
         const section = document.createElement('div');
         section.innerHTML = `
-                
-            <div class="m-3  p-3 bg-white rounded" onclick="loadPhoneDetails('${data.slug}')">
+          
+        <div class="m-3  p-3 bg-gray-200 border-2 border-blue-600 rounded" 
+          onclick="loadPhoneDetails('${data.slug}')">
                 <img class="w-full" src="${data.image}" alt="">
                 <h3 class="text-lg text-gray-800 py-2">
-                <a href="#">  ${data.brand} </a>  </h3>
+                    <a href="#"> ${data.brand} </a>
+                </h3>
                 <p class="text-lg font-semibold text-gray-900 pb-2">${data.phone_name}</p>
-                <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded" 
-                onclick="loadPhoneDetails('${data.slug}')">Details</button>
-          </div>
+                <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded"
+                    onclick="loadPhoneDetails('${data.slug}')">Details</button>
+            </div>
+        
 
         `;
         searchResult.appendChild(section);
@@ -49,17 +68,7 @@ const displaySearchResult = data => {
     });
 }
 
-const loadPhoneDetails = phoneId => {
-    // console.log(phoneId);
-    const url = `
-       https://openapi.programming-hero.com/api/phone/${phoneId}
-    `;
-    console.log(url);
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displayPhoneDetails(data.data));
-}
-
+// display phone details 
 const displayPhoneDetails = details => {
     console.log(details);
     const phoneDetails = document.getElementById('phone-details');
@@ -121,5 +130,4 @@ const displayPhoneDetails = details => {
         </div>
           `;
     phoneDetails.appendChild(detailsSection);
-    // console.log(data.data.mainFeatures)
 }
